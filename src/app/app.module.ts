@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { GetconfirmComponent } from './shared/components/getconfirm/getconfirm.component';
+import { PassengerModule } from './shared/passenger/passenger.module';
+import { PassengerDashboardComponent } from './shared/passenger/passenger-dashboard/passenger-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { GetconfirmComponent } from './shared/components/getconfirm/getconfirm.c
     TodoFormComponent,
     StdTableComponent,
     StdFormComponent,
-    GetconfirmComponent
+    GetconfirmComponent,
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    PassengerModule
   ],
   exports : [
     MatSnackBarModule,

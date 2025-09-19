@@ -12,6 +12,7 @@ import { GetconfirmComponent } from '../getconfirm/getconfirm.component';
 })
 export class TodoListComponent implements OnInit {
   todoArray !: Array<Itodo>;
+  isInEdit : boolean = false;
 
   constructor(private todos : TodoService, 
             private snackbar : SnackbarService,
@@ -26,6 +27,7 @@ export class TodoListComponent implements OnInit {
       console.log(res);
       let getIndex = this.todoArray.findIndex(t => t.todoId === res.todoId);
       this.todoArray[getIndex] = res;
+      this.isInEdit = false;
     }
    })
   }
@@ -48,7 +50,8 @@ export class TodoListComponent implements OnInit {
   onEdit(todo : Itodo){
     console.log(todo);
     
-    this.todos.todoEditEmit(todo)
+    this.todos.todoEditEmit(todo);
+    this.isInEdit = true;
   }
 
   getTodo(){

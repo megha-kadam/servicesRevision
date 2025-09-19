@@ -13,6 +13,7 @@ import { GetconfirmComponent } from '../getconfirm/getconfirm.component';
 export class StdTableComponent implements OnInit {
   stdArrs !: Array<Istd>;
   editObj !: Istd;
+  isInEditMode : boolean = false;
 
   constructor(private std : StdService,
             private snackbar : SnackbarService,
@@ -25,6 +26,7 @@ export class StdTableComponent implements OnInit {
 
   onEdit(std : Istd){
     this.std.editStdEmit(std);
+    this.isInEditMode = true;
   }
 
   onRemoveStd(std : Istd){
@@ -47,6 +49,7 @@ export class StdTableComponent implements OnInit {
     .subscribe(res => {
       let getIndex = this.stdArrs.findIndex(s => s.stdId === res.stdId);
       this.stdArrs[getIndex] = res;
+      this.isInEditMode = false;
     })
   }
 

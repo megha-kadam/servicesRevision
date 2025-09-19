@@ -33,7 +33,7 @@
                             <button class="btn btn-sm btn-outline-info" (click)="onEdit(std)">Edit</button>
                         </td>
                         <td>
-                             <button class="btn btn-sm btn-outline-danger" (click)="onRemoveStd(std)">remove</button>
+                             <button class="btn btn-sm btn-outline-danger" [disabled]="isInEditMode" (click)="onRemoveStd(std)">remove</button>
                         </td>
                     </tr>
                 </tbody>

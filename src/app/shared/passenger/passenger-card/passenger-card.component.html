@@ -1,0 +1,23 @@
+<div class="card mb-3">
+    <div class="card-header">
+       <div>
+        <input type="text" [value]="passObj.fullName" #name [disabled]="!isInEditMode" class="form-control">
+       </div>
+    </div>
+    <div class="card-body">
+        <p>
+            CheckedIn : {{passObj.checkedIn ? 'Yes' : 'No'}}
+        </p>
+        <p>
+            Cheked In Date : {{passObj.checkInDate | date}} 
+        </p>
+        <p>
+            Children : {{passObj.children === null ? '0' : passObj.children.length}}
+        </p>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-sm btn-outline-info mr-3" (click)="onEdit(passObj)" *ngIf="!isInEditMode">Edit</button>
+        <button class="btn btn-sm btn-outline-info mr-3" (click)="onUpdate(name)" *ngIf="isInEditMode">Done</button>
+        <button class="btn btn-sm btn-outline-danger" (click)="onRemove(passObj)">Remove</button>
+    </div>
+</div>

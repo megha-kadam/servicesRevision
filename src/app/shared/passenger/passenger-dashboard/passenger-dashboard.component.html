@@ -1,0 +1,15 @@
+<app-passesnger-count [totalPassCount]="passengerArray.length" [checkedIn]="checkedInCount"></app-passesnger-count>
+
+<ul class="list-group my-4" *ngIf="passengerArray.length > 0; else noPass">
+    <li class="list-group-item" *ngFor="let pass of passengerArray">
+       {{pass.fullName}}
+    </li>
+</ul>
+
+<ng-template #noPass>
+    <p class="alert alert-info">
+        No passengers added yet.
+    </p>
+</ng-template>
+
+<app-passenger-card *ngFor="let pass of passengerArray" [passObj]="pass" (emitPass)="onEmitFlag($event)"></app-passenger-card>
